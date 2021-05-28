@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import { BrowserRouter } from 'react-router-dom'
+import RoutingComponent from './RoutingComponent';
 import reportWebVitals from './reportWebVitals';
 
+// add google analytics
+import ReactGA from 'react-ga'
+ReactGA.initialize('UA-197580585-1');
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <h3>Add Google Analytics to React App</h3>
+      <RoutingComponent />
+    </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

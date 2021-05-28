@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  handleGitHub =() => {
+    ReactGA.event({
+      category: 'Links',
+      action: 'Github',
+      label: 'Github button clicked!',
+      value: 1
+    })
+  }
+  handleStackBlitz =() => {
+    ReactGA.event({
+      category: 'Links',
+      action: 'StackBlitz',
+      label: 'StarBlitz button clicked!',
+      value: 1
+    })
+  }
+  
+  render() {
+    return (
+      <div >
+        <h4>Home</h4>
+        <p>This is Home page.</p>
+        <input type='button' value='Download GitHub Source' onClick={this.handleGitHub}/>
+        <input type='button' value='StackBlitz Project' onClick={this.handleStackBlitz} style={{ marginLeft: 15}} />
+      </div>
+    );
+  }
+ 
 }
 
 export default App;
